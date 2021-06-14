@@ -1,0 +1,52 @@
+<mvc:View controllerName="roerdev.learn.FirtsUI5.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Page id="page" title="{i18n>titleApp}">
+		<content>
+			<Table id="idOrdersTable" items="{/SalesOrderSet}" growing="true" growingThreshold="25">
+				<headerToolbar>
+					<OverflowToolbar>
+						<Title text="{i18n>titleTable}"/>
+						<ToolbarSpacer/>
+						<SearchField width="20%" search="onSearch"/>
+						<Button tooltip="{i18n>sortButton}" icon="sap-icon://sort" press="onSort"/>
+						<Button tooltip="{i18n>groupButton}" icon="sap-icon://group-2" press="onGroup"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="{i18n>columnSalesOrderId}"/>
+					</Column>
+					<Column minScreenWidth="Small" demandPopin="true">
+						<Text text="{i18n>columnCustomerName}"/>
+					</Column>
+					<Column minScreenWidth="Small" demandPopin="true" width="12em">
+						<Text text="{i18n>columnStatus}"/>
+					</Column>
+					<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true" width="12em">
+						<Text text="{i18n>columnGrossAmount}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onPressItem">
+						<cells>
+							<ObjectIdentifier title="{SalesOrderID}"/>
+							<Text text="{CustomerName}"/>
+							<ObjectStatus text="{LifecycleStatusDescription}" icon="{path:'LifecycleStatus', formatter:'.formatter.statusIndicator'}"
+								state="{path:'LifecycleStatus', formatter:'.formatter.formatterStatus'}"/>
+							<ObjectNumber
+								number="{ parts: [{ path: 'GrossAmount' }, { path: 'CurrencyCode' }], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+								unit="{CurrencyCode}"/>
+						</cells>
+					</ColumnListItem>
+					<!--<ColumnListItem type="Navigation">-->
+					<!--	<cells>-->
+					<!--		<ObjectIdentifier title="1"/>-->
+					<!--		<Text text="Nombre de cliente 1"/>-->
+					<!--		<ObjectStatus text="Completada" icon="sap-icon://status-completed" state="Success"/>-->
+					<!--		<ObjectNumber number="199" unit="USD"/>-->
+					<!--	</cells>-->
+					<!--</ColumnListItem>-->
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

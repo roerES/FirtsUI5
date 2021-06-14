@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm=".onSortDialogConfirm" id="sortDialog">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>viewSettingsCustomerName}" key="CustomerName"/>
+			<ViewSettingsItem text="{i18n>viewSettingsGrossAmount}" key="GrossAmount"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

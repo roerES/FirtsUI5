@@ -1,0 +1,21 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="roerdev.learn.FirtsUI5.controller.Detalles"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
+	title="{ parts: [ { path: 'i18n>titleDetails' }, { path: 'SalesOrderID' } ], formatter: 'formatMessage' }"
+	showNavButton="true" navButtonPress="onPressNavBackApp">
+		<content>
+			<ObjectHeader title="{SalesOrderID}" intro="{CustomerName}"
+				number="{ parts:[{path:'GrossAmount'},{path:'CurrencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+				numberUnit="{CurrencyCode}" class="sapUiResponsivePadding--header" responsive="true" fullScreenOptimized="true">
+				<statuses>
+					<ObjectStatus text="{LifecycleStatusDescription}" state="{ path: 'LifecycleStatus', formatter: '.formatter.formatterStatus'}"/>
+				</statuses>
+				<ObjectAttribute text="{path: 'CreatedAt', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"/>
+				<ObjectAttribute text="{Note}"/>
+			</ObjectHeader>
+			<List items="{ToLineItems}" headerText="{i18n>headerList}">
+				<DisplayListItem label="{ProductID}" value="{Quantity}"/>
+			</List>
+		</content>
+	</Page>
+</mvc:View>
