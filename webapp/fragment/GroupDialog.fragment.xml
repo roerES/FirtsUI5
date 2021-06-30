@@ -1,8 +1,0 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<ViewSettingsDialog confirm=".onGroupDialogConfirm" id="groupDialog">
-		<groupItems>
-			<ViewSettingsItem text="{i18n>viewSettingsCustomerName}" key="CustomerName"/>
-			<ViewSettingsItem text="{i18n>viewSettingsStatus}" key="LifecycleStatus"/>
-		</groupItems>
-	</ViewSettingsDialog>
-</core:FragmentDefinition>
