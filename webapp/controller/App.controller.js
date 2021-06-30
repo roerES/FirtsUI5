@@ -14,7 +14,7 @@ sap.ui.define([
 		formatter: Formatter,
 
 		onInit: function () {
-
+			
 		},
 
 		onBeforeRendering: function () {
@@ -27,6 +27,10 @@ sap.ui.define([
 
 		onExit: function () {
 
+		},
+
+		validadorFecha: function (dateTime) {
+			
 		},
 
 		onSearch: function (oEvent) {
@@ -113,11 +117,11 @@ sap.ui.define([
 			var oBinding = oTable.getBinding("items");
 			oBinding.sort(oSorters);
 		},
-		
+
 		onPressItem: function (oEvent) {
 			var oRouter = UIComponent.getRouterFor(this);
 			var oItem = oEvent.getSource();
-			
+
 			oRouter.navTo("Detalles", {
 				SalesOrderID: oItem.getBindingContext().getObject().SalesOrderID
 			});
